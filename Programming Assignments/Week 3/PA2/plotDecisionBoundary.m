@@ -10,7 +10,7 @@ function plotDecisionBoundary(theta, X, y)
 %   2) MxN, N>3 matrix, where the first column is all-ones
 
 % Plot Data
-plotData(X(:, 2 : 3), y);
+plotData(X(:, 2:3), y);
 hold on
 
 if size(X, 2) <= 3

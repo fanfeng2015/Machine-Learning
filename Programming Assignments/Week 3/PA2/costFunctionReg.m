@@ -22,9 +22,10 @@ grad = zeros(size(theta));
 n = size(X, 2); % number of features
 
 H = sigmoid(X * theta);
-J = sum(y .* log(H) + (1 - y) .* log(1 - H)) / (-m) + lambda / (2 * m) * sum(theta(2 : n) .^ 2);
-grad = sum(repmat((H - y), 1, n) .* X) / m;
-grad(2 : n) = grad(2 : n)' + lambda / m * theta(2 : n);
+J = sum(y .* log(H) + (1 - y) .* log(1 - H)) / (-m) + sum(theta(2 : n) .^ 2) * lambda / (2 * m);
+grad = X' * (H - y) / m;
+grad(2 : n) = grad(2 : n) + theta(2 : n) * lambda / m;
+
 % =============================================================
 
 end
