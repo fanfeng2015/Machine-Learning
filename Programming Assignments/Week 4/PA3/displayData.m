@@ -32,7 +32,7 @@ display_array = -ones(pad + display_rows * (example_height + pad), ...
 curr_ex = 1;
 for j = 1 : display_rows
 	for i = 1 : display_cols
-		if curr_ex > m, 
+		if curr_ex > m
 			break; 
 		end
 		% Copy the patch
@@ -44,7 +44,7 @@ for j = 1 : display_rows
                       reshape(X(curr_ex, :), example_height, example_width) / max_val;
 		curr_ex = curr_ex + 1;
 	end
-	if curr_ex > m, 
+	if curr_ex > m
 		break; 
 	end
 end
