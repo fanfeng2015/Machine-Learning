@@ -37,7 +37,7 @@ m = size(X, 1);
 
 % Randomly select 100 data points to display
 sel = randperm(size(X, 1));
-sel = sel(1:100);
+sel = sel(1 : 100);
 
 displayData(X(sel, :));
 
@@ -55,7 +55,7 @@ fprintf('\nLoading Saved Neural Network Parameters ...\n')
 load('ex4weights.mat');
 
 % Unroll parameters 
-nn_params = [Theta1(:) ; Theta2(:)];
+nn_params = [Theta1(:); Theta2(:)];
 
 %% ================ Part 3: Compute Cost (Feedforward) ================
 %  To the neural network, you should first start by implementing the
@@ -199,15 +199,14 @@ costFunction = @(p) nnCostFunction(p, ...
 [nn_params, cost] = fmincg(costFunction, initial_nn_params, options);
 
 % Obtain Theta1 and Theta2 back from nn_params
-Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
+Theta1 = reshape(nn_params(1 : hidden_layer_size * (input_layer_size + 1)), ...
                  hidden_layer_size, (input_layer_size + 1));
 
-Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...
+Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))) : end), ...
                  num_labels, (hidden_layer_size + 1));
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
-
 
 %% ================= Part 9: Visualize Weights =================
 %  You can now "visualize" what the neural network is learning by 
