@@ -17,7 +17,7 @@
 %
 
 %% Initialization
-clear ; close all; clc
+clear; close all; clc
 
 %% Load Data
 %  The first two columns contains the exam scores and the third column
