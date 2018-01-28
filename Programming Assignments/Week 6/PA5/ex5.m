@@ -16,7 +16,7 @@
 %
 
 %% Initialization
-clear ; close all; clc
+clear; close all; clc
 
 %% =========== Part 1: Loading and Visualizing Data =============
 %  We start the exercise by first loading and visualizing the dataset. 
@@ -47,10 +47,10 @@ pause;
 %  regression. 
 %
 
-theta = [1 ; 1];
+theta = [1; 1];
 J = linearRegCostFunction([ones(m, 1) X], y, theta, 1);
 
-fprintf(['Cost at theta = [1 ; 1]: %f '...
+fprintf(['Cost at theta = [1; 1]: %f '...
          '\n(this value should be about 303.993192)\n'], J);
 
 fprintf('Program paused. Press enter to continue.\n');
@@ -61,16 +61,15 @@ pause;
 %  regression.
 %
 
-theta = [1 ; 1];
+theta = [1; 1];
 [J, grad] = linearRegCostFunction([ones(m, 1) X], y, theta, 1);
 
-fprintf(['Gradient at theta = [1 ; 1]:  [%f; %f] '...
+fprintf(['Gradient at theta = [1; 1]: [%f; %f] '...
          '\n(this value should be about [-15.303016; 598.250744])\n'], ...
          grad(1), grad(2));
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
-
 
 %% =========== Part 4: Train Linear Regression =============
 %  Once you have implemented the cost and gradient correctly, the
@@ -90,12 +89,11 @@ plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
 xlabel('Change in water level (x)');
 ylabel('Water flowing out of the dam (y)');
 hold on;
-plot(X, [ones(m, 1) X]*theta, '--', 'LineWidth', 2)
+plot(X, [ones(m, 1) X] * theta, '--', 'LineWidth', 2)
 hold off;
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
-
 
 %% =========== Part 5: Learning Curve for Linear Regression =============
 %  Next, you should implement the learningCurve function. 
@@ -118,7 +116,7 @@ ylabel('Error')
 axis([0 13 0 150])
 
 fprintf('# Training Examples\tTrain Error\tCross Validation Error\n');
-for i = 1:m
+for i = 1 : m
     fprintf('  \t%d\t\t%f\t%f\n', i, error_train(i), error_val(i));
 end
 
@@ -127,35 +125,33 @@ pause;
 
 %% =========== Part 6: Feature Mapping for Polynomial Regression =============
 %  One solution to this is to use polynomial regression. You should now
-%  complete polyFeatures to map each example into its powers
+%  complete polyFeatures to map each example into its powers.
 %
 
 p = 8;
 
 % Map X onto Polynomial Features and Normalize
 X_poly = polyFeatures(X, p);
-[X_poly, mu, sigma] = featureNormalize(X_poly);  % Normalize
-X_poly = [ones(m, 1), X_poly];                   % Add Ones
+[X_poly, mu, sigma] = featureNormalize(X_poly); % Normalize
+X_poly = [ones(m, 1), X_poly];                  % Add Ones
 
 % Map X_poly_test and normalize (using mu and sigma)
 X_poly_test = polyFeatures(Xtest, p);
 X_poly_test = bsxfun(@minus, X_poly_test, mu);
 X_poly_test = bsxfun(@rdivide, X_poly_test, sigma);
-X_poly_test = [ones(size(X_poly_test, 1), 1), X_poly_test];         % Add Ones
+X_poly_test = [ones(size(X_poly_test, 1), 1), X_poly_test]; % Add Ones
 
 % Map X_poly_val and normalize (using mu and sigma)
 X_poly_val = polyFeatures(Xval, p);
 X_poly_val = bsxfun(@minus, X_poly_val, mu);
 X_poly_val = bsxfun(@rdivide, X_poly_val, sigma);
-X_poly_val = [ones(size(X_poly_val, 1), 1), X_poly_val];           % Add Ones
+X_poly_val = [ones(size(X_poly_val, 1), 1), X_poly_val]; % Add Ones
 
 fprintf('Normalized Training Example 1:\n');
 fprintf('  %f  \n', X_poly(1, :));
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
-
-
 
 %% =========== Part 7: Learning Curve for Polynomial Regression =============
 %  Now, you will get to experiment with polynomial regression with multiple
@@ -188,7 +184,7 @@ legend('Train', 'Cross Validation')
 
 fprintf('Polynomial Regression (lambda = %f)\n\n', lambda);
 fprintf('# Training Examples\tTrain Error\tCross Validation Error\n');
-for i = 1:m
+for i = 1 : m
     fprintf('  \t%d\t\t%f\t%f\n', i, error_train(i), error_val(i));
 end
 
@@ -211,10 +207,12 @@ xlabel('lambda');
 ylabel('Error');
 
 fprintf('lambda\t\tTrain Error\tValidation Error\n');
-for i = 1:length(lambda_vec)
+for i = 1 : length(lambda_vec)
 	fprintf(' %f\t%f\t%f\n', ...
             lambda_vec(i), error_train(i), error_val(i));
 end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+
