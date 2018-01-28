@@ -82,7 +82,7 @@ for i = 1 : m
     fprintf('\nNeural Network Prediction: %d (digit %d)\n', pred, mod(pred, 10));
     
     % Pause with quit option
-    s = input('Paused - press enter to continue, q to exit:','s');
+    s = input('Paused - press enter to continue, q to exit:', 's');
     if s == 'q'
       break
     end
