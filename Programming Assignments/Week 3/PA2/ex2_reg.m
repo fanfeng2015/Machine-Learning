@@ -69,7 +69,7 @@ lambda = 1;
 fprintf('Cost at initial theta (zeros): %f\n', cost);
 fprintf('Expected cost (approx): 0.693\n');
 fprintf('Gradient at initial theta (zeros) - first five values only:\n');
-fprintf(' %f \n', grad(1: 5));
+fprintf(' %f \n', grad(1:5));
 fprintf('Expected gradients (approx) - first five values only:\n');
 fprintf(' 0.0085\n 0.0188\n 0.0001\n 0.0503\n 0.0115\n');
 
@@ -84,7 +84,7 @@ test_theta = ones(size(X, 2), 1);
 fprintf('\nCost at test theta (with lambda = 10): %f\n', cost);
 fprintf('Expected cost (approx): 3.16\n');
 fprintf('Gradient at test theta - first five values only:\n');
-fprintf(' %f \n', grad(1: 5));
+fprintf(' %f \n', grad(1:5));
 fprintf('Expected gradients (approx) - first five values only:\n');
 fprintf(' 0.3460\n 0.1614\n 0.1948\n 0.2269\n 0.0922\n');
 
