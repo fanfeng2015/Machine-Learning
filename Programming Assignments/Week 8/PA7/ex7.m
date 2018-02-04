@@ -19,7 +19,7 @@
 %
 
 %% Initialization
-clear ; close all; clc
+clear; close all; clc
 
 %% ================= Part 1: Find Closest Centroids ====================
 %  To help you implement K-Means, we have divided the learning algorithm 
@@ -35,8 +35,7 @@ load('ex7data2.mat');
 K = 3; % 3 Centroids
 initial_centroids = [3 3; 6 2; 8 5];
 
-% Find the closest centroids for the examples using the
-% initial_centroids
+% Find the closest centroids for the examples using the initial_centroids
 idx = findClosestCentroids(X, initial_centroids);
 
 fprintf('Closest centroids for the first 3 examples: \n')
@@ -52,7 +51,7 @@ pause;
 %
 fprintf('\nComputing centroids means.\n\n');
 
-%  Compute means based on the closest centroids found in the previous part.
+% Compute means based on the closest centroids found in the previous part.
 centroids = computeCentroids(X, idx, K);
 
 fprintf('Centroids computed after initial finding of closest centroids: \n')
@@ -64,7 +63,6 @@ fprintf('   [ 7.119387 3.616684 ]\n\n');
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
-
 
 %% =================== Part 3: K-Means Clustering ======================
 %  After you have completed the two functions computeCentroids and
@@ -105,11 +103,11 @@ pause;
 
 fprintf('\nRunning K-Means clustering on pixels from an image.\n\n');
 
-%  Load an image of a bird
+% Load an image of a bird
 A = double(imread('bird_small.png'));
 
 % If imread does not work for you, you can try instead
-%   load ('bird_small.mat');
+% load ('bird_small.mat');
 
 A = A / 255; % Divide by 255 so that all values are in the range 0 - 1
 
@@ -137,7 +135,6 @@ initial_centroids = kMeansInitCentroids(X, K);
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
-
 %% ================= Part 5: Image Compression ======================
 %  In this part of the exercise, you will use the clusters of K-Means to
 %  compress an image. To do this, we first find the closest clusters for
@@ -153,7 +150,7 @@ idx = findClosestCentroids(X, centroids);
 
 % We can now recover the image from the indices (idx) by mapping each pixel
 % (specified by its index in idx) to the centroid value
-X_recovered = centroids(idx,:);
+X_recovered = centroids(idx, :);
 
 % Reshape the recovered image into proper dimensions
 X_recovered = reshape(X_recovered, img_size(1), img_size(2), 3);
@@ -168,7 +165,7 @@ subplot(1, 2, 2);
 imagesc(X_recovered)
 title(sprintf('Compressed, with %d colors.', K));
 
-
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
 
