@@ -129,7 +129,6 @@ fprintf('Program paused. Press enter to continue.\n');
 pause;
 
 %% ========== Part 7: Training SVM with RBF Kernel (Dataset 3) ==========
-
 %  This is a different dataset that you can use to experiment with. Try
 %  different values of C and sigma here.
 % 
