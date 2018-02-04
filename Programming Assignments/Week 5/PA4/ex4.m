@@ -139,7 +139,7 @@ initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 %
 fprintf('\nChecking Backpropagation... \n');
 
-%  Check gradients by running checkNNGradients
+% Check gradients by running checkNNGradients
 checkNNGradients;
 
 fprintf('\nProgram paused. Press enter to continue.\n');
@@ -152,7 +152,7 @@ pause;
 
 fprintf('\nChecking Backpropagation (w/ Regularization) ... \n')
 
-%  Check gradients by running checkNNGradients
+% Check gradients by running checkNNGradients
 lambda = 3;
 checkNNGradients(lambda);
 
@@ -175,11 +175,11 @@ pause;
 %
 fprintf('\nTraining Neural Network... \n')
 
-%  After you have completed the assignment, change the MaxIter to a larger
-%  value to see how more training helps.
+% After you have completed the assignment, change the MaxIter to a larger
+% value to see how more training helps.
 options = optimset('MaxIter', 50);
 
-%  You should also try different values of lambda
+% You should also try different values of lambda
 lambda = 1;
 
 % Create "short hand" for the cost function to be minimized
