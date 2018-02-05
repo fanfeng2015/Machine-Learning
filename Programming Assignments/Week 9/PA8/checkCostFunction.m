@@ -1,11 +1,12 @@
 function checkCostFunction(lambda)
-%CHECKCOSTFUNCTION Creates a collaborative filering problem 
-%to check your cost function and gradients
-%   CHECKCOSTFUNCTION(lambda) Creates a collaborative filering problem 
-%   to check your cost function and gradients, it will output the 
-%   analytical gradients produced by your code and the numerical gradients 
-%   (computed using computeNumericalGradient). These two gradient 
-%   computations should result in very similar values.
+% CHECKCOSTFUNCTION Creates a collaborative filering problem 
+% to check your cost function and gradients.
+
+% CHECKCOSTFUNCTION(lambda) Creates a collaborative filering problem 
+% to check your cost function and gradients, it will output the 
+% analytical gradients produced by your code and the numerical gradients 
+% (computed using computeNumericalGradient). These two gradient 
+% computations should result in very similar values.
 
 % Set lambda
 if ~exist('lambda', 'var') || isempty(lambda)
@@ -31,10 +32,10 @@ num_features = size(Theta_t, 2);
 
 numgrad = computeNumericalGradient( ...
                 @(t) cofiCostFunc(t, Y, R, num_users, num_movies, ...
-                                num_features, lambda), [X(:); Theta(:)]);
+                                  num_features, lambda), [X(:); Theta(:)]);
 
-[cost, grad] = cofiCostFunc([X(:); Theta(:)],  Y, R, num_users, ...
-                          num_movies, num_features, lambda);
+[cost, grad] = cofiCostFunc([X(:); Theta(:)], Y, R, num_users, ...
+                            num_movies, num_features, lambda);
 
 disp([numgrad grad]);
 fprintf(['The above two columns you get should be very similar.\n' ...
@@ -46,3 +47,4 @@ fprintf(['If your cost function implementation is correct, then \n' ...
          '\nRelative Difference: %g\n'], diff);
 
 end
+
